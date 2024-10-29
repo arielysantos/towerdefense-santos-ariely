@@ -31,6 +31,16 @@ public class enemyMoviments : MonoBehaviour
                 Destroy(gameObject);
                 return;
             }
+            else
+            {
+                target = levelManager.main.path[pathIndex];
+            }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 direction = (target.position - transform.position).normalized;
+
     }
 }
