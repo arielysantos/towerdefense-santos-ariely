@@ -12,4 +12,11 @@ public class enemyMoviments : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
 
     private Transform target;
+    private int pathIndex = 0;
+
+
+    private void Start()
+    {
+        target = levelManager.main.path[pathIndex];
+    }
 }
