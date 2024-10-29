@@ -17,7 +17,7 @@ public class enemyMoviments : MonoBehaviour
 
     private void Start()
     {
-        target = levelManager.main.path[pathIndex];
+        target = LevelManager.main.path[pathIndex];
     }
 
     private void Update()
@@ -26,14 +26,14 @@ public class enemyMoviments : MonoBehaviour
         {
             pathIndex++;
 
-            if (pathIndex == levelManager.main.path.Length)
+            if (pathIndex != LevelManager.main.path.Length)
             {
-                Destroy(gameObject);
-                return;
+                target = evelManager.main.path[pathIndex];
             }
             else
             {
-                target = levelManager.main.path[pathIndex];
+                Destroy(gameObject);
+                return;
             }
         }
     }
@@ -44,4 +44,9 @@ public class enemyMoviments : MonoBehaviour
 
         rb.velocity = direction * moveSpeed;
     }
+}
+
+internal class LevelManager
+{
+    internal static object main;
 }
