@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class levelManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
-    public static levelManager main;
-
-    public Transform startPoint;
-    public Transform[] path;
-
-    private void Awake()
+    public class levelManager : MonoBehaviour
     {
-        main = this;
+        public static levelManager main;
+
+        public Transform startPoint;
+        public Transform[] path;
+
+        private void Awake()
+        {
+            main = this;
+        }
     }
 }
