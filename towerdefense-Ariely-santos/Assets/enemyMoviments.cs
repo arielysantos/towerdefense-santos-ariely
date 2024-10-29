@@ -19,4 +19,18 @@ public class enemyMoviments : MonoBehaviour
     {
         target = levelManager.main.path[pathIndex];
     }
+
+    private void Update()
+    {
+        if (Vector2.Distance(target.position, transform.position) <= 0.1f)
+        {
+            pathIndex++;
+
+            if (pathIndex == levelManager.main.path.Length)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+    }
 }
