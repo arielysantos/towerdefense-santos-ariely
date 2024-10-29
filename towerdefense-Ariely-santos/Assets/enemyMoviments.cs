@@ -42,5 +42,6 @@ public class enemyMoviments : MonoBehaviour
     {
         Vector2 direction = (target.position - transform.position).normalized;
 
+        rb.velocity = direction * moveSpeed;
     }
 }
