@@ -14,4 +14,9 @@ public class enemyspanw : MonoBehaviour
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
 
+
+    private void Start()
+    {
+        enemiesLeftToSpawn = baseEnemies;
+    }
 }
