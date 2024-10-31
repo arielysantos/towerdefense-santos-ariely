@@ -16,7 +16,7 @@ public class enemyspanw : MonoBehaviour
     [SerializeField] private float difficultyScalingFactor = 0.75f;
 
     [Header("Events")]
-    public static UnityEvent onEnemyDestroy = new UnityEvent();
+    public static UnityEvent onEnemyDestroy;
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
@@ -41,11 +41,6 @@ public class enemyspanw : MonoBehaviour
             enemiesAlive++;
             timeSinceLastSpawn = 0f;
         }
-        if(enemiesAlive == 0 && enemiesLeftToSpawn == 0)
-        {
-            EndWave();
-        }
-
     }
 
     private void EnemyDestroyed()
@@ -59,19 +54,10 @@ public class enemyspanw : MonoBehaviour
         StartWave;
     }
 
-    private void IEnumerator SatartWave()
+    private void SatartWave()
     {
-        yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
-    }
-
-    private void EndWave()
-    {
-        isSpawning = false;
-        timeSinceLastSpawn = 0f;
-        currentWave++;
-        StartCoroutine(StartWave());
     }
 
     private void SpawnEnemy()
