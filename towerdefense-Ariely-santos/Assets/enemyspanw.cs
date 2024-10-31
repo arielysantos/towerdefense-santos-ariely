@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class enemyspanw : MonoBehaviour
@@ -14,10 +15,22 @@ public class enemyspanw : MonoBehaviour
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
+    private bool isSpawning = false;
 
-
-    private void Start()
+    private void Update()
     {
+        if (!isSpawning) return;
+
+        timeSinceLastSpawn >= (1f / enemiesPerSecond)) 
+        {
+            Debug.Log("Spawn Enemy");
+        }
+    }
+
+
+    private void StartWave()
+    {
+        isSpawning = true;
         enemiesLeftToSpawn = baseEnemies;
     }
 
