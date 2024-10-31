@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events; 
 
 public class enemyspanw : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private GameObject[] enemyPrefabs;
+
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
     [SerializeField] private float enemiesPerSecond = 0.5f;
     [SerializeField] private float timeBotweenWaves = 5f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
+
+    [Header("Events")]
+    public static UnityEvent onEnemyDestroy;
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
