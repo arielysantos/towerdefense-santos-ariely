@@ -24,6 +24,11 @@ public class enemyspanw : MonoBehaviour
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
 
+    private void Awake()
+    {
+        onEnemyDestroy.AddListener(EnemyDestroyed);
+    }
+
     private void Update()
     {
         if (!isSpawning) return;
@@ -36,6 +41,11 @@ public class enemyspanw : MonoBehaviour
             enemiesAlive++;
             timeSinceLastSpawn = 0f;
         }
+    }
+
+    private void EnemyDestroyed()
+    {
+        enemiesAlive--;
     }
 
 
