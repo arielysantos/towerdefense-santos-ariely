@@ -8,6 +8,7 @@ public class enemyspanw : MonoBehaviour
     [SerializeField] private int baseEnemies = 8;
     [SerializeField] private float enemiesPerSecond = 0.5f;
     [SerializeField] private float timeBotweenWaves = 5f;
+    [SerializeField] private float difficultyScalingFactor = 0.75f;
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
