@@ -21,17 +21,32 @@ public class enemyspanw : MonoBehaviour
     {
         if (!isSpawning) return;
 
-        timeSinceLastSpawn >= (1f / enemiesPerSecond)) 
+        timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0) 
         {
+            SpawnEnemy();
             Debug.Log("Spawn Enemy");
+            enemiesLeftToSpawn--;
+            enemiesAlive++;
+            timeSinceLastSpawn = 0f;
         }
     }
 
 
-    private void StartWave()
+    private void Start()
+    {
+        StartWave;
+    }
+
+    private void SatartWave()
     {
         isSpawning = true;
-        enemiesLeftToSpawn = baseEnemies;
+        enemiesLeftToSpawn = EnemiesPerWave();
+    }
+
+    private void SpawnEnemy()
+    {
+        GameObject prefabToSpawn = enemyPrefabs[0];
+        Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
     }
 
     private int EnemiesPerWave()
