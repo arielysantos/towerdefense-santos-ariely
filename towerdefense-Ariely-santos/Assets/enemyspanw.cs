@@ -19,4 +19,9 @@ public class enemyspanw : MonoBehaviour
     {
         enemiesLeftToSpawn = baseEnemies;
     }
+
+    private int EnemiesPerWave()
+    {
+        return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, enemiesPerSecond));
+    }
 }
